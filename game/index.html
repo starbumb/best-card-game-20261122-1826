@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMBERFALL — Duel of the Four Sigils</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Title screen -->
+  <section id="title-screen" class="screen">
+    <div class="game-subtitle">Duel of the Four Sigils</div>
+    <h1 class="game-title">EMBERFALL</h1>
+    <div id="sigil-row" class="sigil-row"></div>
+    <div id="title-cards" class="title-cards"></div>
+    <p class="title-blurb">
+      A one-on-one card duel against Captain Vex. Spend energy to summon
+      creatures of Ember, Tide, Gale and Stone, chain same-sigil Surge
+      combos, hide behind Guards, and burn the enemy hero from 20 life to
+      zero — before round 12 ends and the higher life total wins.
+    </p>
+    <div class="row">
+      <button id="play">▶ Play the duel</button>
+      <button id="help-btn" class="ghost">How to play (H)</button>
+    </div>
+    <div id="help-box" class="help-box hidden">
+      <h3>Goal</h3>
+      Reduce Captain Vex from <b>20 life</b> to 0. If round 12 ends first, the higher life total wins.
+      <h3>Your turn</h3>
+      You gain +1 max energy each round (up to 8) and draw a card. Click a card in your hand, then a
+      glowing slot to summon it. Creatures attack from the next turn unless they have <b>Swift</b>.
+      Click a glowing creature, then an enemy creature or Vex himself. <b>Guard</b> creatures must be
+      attacked first; <b>Shield</b> ignores one hit; <b>Drain</b> heals your hero; <b>Surge</b> grows
+      stronger beside allies of the same sigil — build around one sigil or splash them all.
+      <h3>Controls</h3>
+      Mouse: click cards, slots and targets. Keyboard: <kbd>1</kbd>–<kbd>7</kbd> pick a hand card,
+      <kbd>Q</kbd>/<kbd>W</kbd>/<kbd>E</kbd> choose a slot, <kbd>Space</kbd> ends the turn,
+      <kbd>Esc</kbd> cancels, <kbd>H</kbd> help, <kbd>Enter</kbd> starts, <kbd>R</kbd> rematch.
+    </div>
+  </section>
+
+  <!-- Battle screen -->
+  <section id="battle-screen" class="hidden">
+    <div id="battle">
+      <div class="topbar">
+        <div class="brand">✦ EMBERFALL</div>
+        <div id="turn-banner" class="turn-banner">YOUR TURN</div>
+        <div id="round-badge" class="round-badge">Round 1 / 12</div>
+      </div>
+      <div id="enemy-side" class="side-row"></div>
+      <div id="enemy-board" class="board-row"></div>
+      <div class="vs-line">⚔ THE TABLE ⚔</div>
+      <div id="player-board" class="board-row"></div>
+      <div id="player-side" class="side-row"></div>
+      <div id="player-hand" class="hand-row"></div>
+      <div class="hint-line" id="hint"></div>
+      <div class="bottombar">
+        <div id="log" class="log"></div>
+        <div class="controls">
+          <button id="end-turn">End turn ⏎</button>
+          <button id="mute" class="ghost">🔊 Sound on</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Win / loss screen -->
+  <section id="end-screen" class="screen hidden">
+    <div id="end-title" class="end-title win">🏆 VICTORY!</div>
+    <p id="end-sub" class="title-blurb"></p>
+    <div id="end-stats" class="end-stats"></div>
+    <div class="row">
+      <button id="again">↻ Play again (R)</button>
+    </div>
+  </section>
+
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>
